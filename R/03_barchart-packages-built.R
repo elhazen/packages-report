@@ -14,7 +14,9 @@ apt_freqtable <- readr::read_csv(here("data","add-on-packages-freqtable.csv"))
 g<-ggplot(apt_freqtable, aes(x = Built, y = n)) +
   geom_bar(stat = "identity") + theme_bw()
 
-ggsave(g,file=here("figs","built-barchart.png", height = 3))
+#ggsave(g,file=here("figs","built-barchart.png", height = 3))
+
+ggsave(here("figs", "built-barchart.png"), g, height = 3)
 
 ## write this barchart to figs/built-barchart.png
 ## if you use ggplot2, ggsave() will help
