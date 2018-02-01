@@ -8,7 +8,12 @@ library(here)
 ## create a data frame from data/installed-packages.csv
 ## with, e.g., readr::read_csv() or read.csv()
 
+data_file <- dir_ls(here("data"), glob = "*installed-packages.csv")
+stopifnot(length(data_file) == 1)
+
 ipt <- readr::read_csv(here("data","installed-packages.csv"))
+ipt <- read_csv(data_file)
+
 ## filter out packages in the default library
 ## keep variables Package and Built
 ## if you use dplyr, code like this will work:

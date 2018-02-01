@@ -26,9 +26,10 @@ path_real(.Library)
 #' Installed packages
 
 ipt <- installed.packages() %>%
-  as_tibble() %>% select("Package","LibPath","Version","Priority","Built")
+  as_tibble() %>%
+  select("Package","LibPath","Version","Priority","Built") %>%
+  write_csv(here("data","installed-packages.csv"))
 
-write_csv(ipt, here("data","installed-packages.csv"))
 ## keep the variables
 ##   * Package
 ##   * LibPath
